@@ -1,0 +1,11 @@
+No,CandidateRequirement,Category,Source
+1,Search doctors by specialty,Functional,Interviews + Survey + Workshop
+2,Appointment reminder notification,Functional,Interviews + Survey + Workshop
+3,Confirm booking before finalizing,Functional,Interviews + Survey + Workshop
+4,Drug interaction/allergy warning,Functional - Safety,Interviews + Survey + Workshop
+5,Visit statistics report,Functional,Interviews + Survey + Workshop
+6,Manage doctor catalog,Functional,Interviews + Survey + Workshop
+7,System stability during peak hours,Non-functional - Performance,Interviews + Survey + Workshop
+8,Data security & encryption,Non-functional - Security,Interviews + Survey + Workshop
+9,Verify health insurance coverage,Functional,Interviews + Survey + Workshop
+10,Alternative booking channel to phone,Functional,Interviews + Survey + Workshop

@@ -1,0 +1,37 @@
+Interview 1 - Patient (Jane Smith, 34 years old)
+------------------------------------------------
+"I often have to call many times before I can book an appointment because I
+don't know which doctor is available. I want to be able to search doctors by
+specialty and see open time slots on my phone. I also often forget my
+appointments, so I really need reminders."
+
+Interview 2 - Doctor (Dr. Robert Tran, General Medicine)
+------------------------------------------------------
+"I need to see a patient's visit history before they walk into the room, and
+it's especially important that the system warns me if I prescribe something
+that conflicts with a known allergy. There was a near-miss where I almost
+prescribed the wrong drug because I couldn't recall the full history."
+
+Interview 3 - Receptionist (Patricia Lee)
+------------------------------------------------------
+"Many patients book online and then don't show up, wasting the slot. I want
+a confirmation step before the booking is finalized, and I need to see the
+list of pending confirmations for the day."
+
+Interview 4 - Hospital Administrator (David Nguyen)
+------------------------------------------------------
+"The board needs a report on visit volume by doctor and by department for
+staffing plans. I also need to manage the doctor list and update working
+schedules when a doctor takes leave."
+
+Quick survey (50 patients, online form)
+------------------------------------------------------
+- 82% want reminder notifications via SMS/chat app.
+- 65% have experienced calling but nobody answering the phone.
+- 40% care about verifying health insurance coverage online.
+
+Workshop with the hospital IT team
+------------------------------------------------------
+- The legacy system used to crash during the 8-9 AM peak hour.
+- Medical record data is sensitive information; it must be encrypted and
+  access strictly controlled per Ministry of Health regulations.
