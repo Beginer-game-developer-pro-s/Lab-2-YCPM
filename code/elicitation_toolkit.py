@@ -4,7 +4,7 @@
 elicitation_toolkit.py
 Lab 2 - Requirements Elicitation
 Course: Software Requirements (CSE703095) - Phenikaa University
-Author / Performed by: Trần Đoãn Việt Anh
+Author / Performed by: Trần Doãn Việt Anh
 -----------------------------------------------------------------
 Demonstrates the process of turning raw elicitation data (interview
 notes, survey results, workshop notes) into a list of candidate
@@ -142,48 +142,48 @@ def main():
 
     candidates = extract_candidates(text)
 
-    # Lưu danh sách yêu cầu ứng viên vào tập tin CSV chuẩn UTF-8
+    # Save extracted candidate requirements to UTF-8 CSV
     with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["No", "CandidateRequirement", "Category", "Source"])
         for i, (label, kind) in enumerate(candidates, 1):
             w.writerow([i, label, kind, "Interviews + Survey + Workshop"])
 
-    print(f"Đã trích xuất được {len(candidates)} yêu cầu ứng viên từ dữ liệu thô:\n")
+    print(f"Extracted {len(candidates)} candidate requirements from raw data:\n")
     for i, (label, kind) in enumerate(candidates, 1):
         print(f"  {i:2d}. [{kind}] {label}")
-    print(f"\n[OK] Đã lưu danh sách yêu cầu ứng viên vào: {OUT_CSV}")
+    print(f"\n[OK] Saved candidate requirements to: {OUT_CSV}")
 
-    # Minh họa tính năng Phát hiện Xung đột Yêu cầu (Nhiệm vụ 2)
+    # Stakeholder Conflict Detection Demonstration (Task 2)
     print("\n" + "=" * 65)
-    print("PHÁT HIỆN XUNG ĐỘT GIỮA CÁC BÊN LIÊN QUAN - STAKEHOLDERS (Nhiệm vụ 2)")
+    print("STAKEHOLDER CONFLICT DETECTION (Task 2)")
     print("=" * 65)
 
-    # 1. Kiểm tra xung đột trực tiếp trên tập yêu cầu hiện tại
+    # 1. Check direct conflicts in current extracted candidates
     direct_conflicts = detect_conflicts(candidates)
     if direct_conflicts:
-        print(f"[!] Phát hiện {len(direct_conflicts)} xung đột trong tập dữ liệu.")
+        print(f"[!] Detected {len(direct_conflicts)} conflict(s) in dataset.")
     else:
-        print("[-] Không phát hiện xung đột trực tiếp trong các ghi chép tường minh.")
+        print("[-] No direct conflict detected in current explicit notes.")
 
-    # 2. Thử nghiệm kịch bản đối kháng: Bệnh nhân (SH-01) vs Lễ tân (SH-03)
+    # 2. Test contradictory scenario: Patient (SH-01) vs Receptionist (SH-03)
     simulated_candidates = list(candidates) + [
         ("Allow unlimited reschedules by patient", "Functional"),
         ("Strict receptionist reschedule control policy", "Functional"),
     ]
     simulated_conflicts = detect_conflicts(simulated_candidates)
-    print("\n[*] Thực thi kiểm tra xung đột trên dữ liệu mô phỏng các bên liên quan:")
+    print("\n[*] Executing conflict check on simulated stakeholder inputs:")
     for conflict in simulated_conflicts:
         req_a, req_b = conflict["pair"]
         sh_a, sh_b = conflict["stakeholders"]
         c_id = conflict["change_request_id"]
         action = conflict["action"]
-        print(f"    - Mã yêu cầu thay đổi (Conflict ID): {c_id}")
-        print(f"      * {sh_a}: '{req_a}' (Yêu cầu đổi lịch tự do)")
-        print(f"      * {sh_b}: '{req_b}' (Chính sách kiểm soát dời lịch)")
-        print(f"      * Đề xuất xử lý: {action} (Chuyển lên Hội đồng CCB)")
+        print(f"    - Conflict ID: {c_id}")
+        print(f"      * {sh_a}: '{req_a}' (Unrestricted rescheduling desire)")
+        print(f"      * {sh_b}: '{req_b}' (Rescheduling control policy)")
+        print(f"      * Action: {action} (Escalate to Change Control Board)")
 
-    print("\n>> Bước tiếp theo: Tiến hành phân tích định tính và hoàn thiện báo cáo.")
+    print("\n>> Next step: Proceed to qualitative analysis & report review.")
 
 
 if __name__ == "__main__":
